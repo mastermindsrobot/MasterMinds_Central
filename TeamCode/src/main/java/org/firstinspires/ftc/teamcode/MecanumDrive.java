@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 @TeleOp(name = "Mecanum Drive with Brakes", group = "TeleOp")
-public class samplecode extends LinearOpMode {
+public class MecanumDrive extends LinearOpMode {
 
     private DcMotor leftFront, rightFront, leftBack, rightBack;
     private GoBildaPinpointDriver pinpoint;
@@ -45,11 +45,11 @@ public class samplecode extends LinearOpMode {
         // MOTOR DIRECTIONS
         // -------------------------
 
-        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
 
         // -------------------------
         // MOTOR MODES
@@ -114,13 +114,13 @@ public class samplecode extends LinearOpMode {
 
             // FTC joystick Y is negative when pushed forward,
             // so we invert it here.
-            double y = gamepad1.right_stick_y;
+            double y = -gamepad1.right_stick_y;
 
             // X controls strafing
-            double x = -gamepad1.right_stick_x;
+            double x = gamepad1.right_stick_x;
 
             // Left stick controls rotation
-            double rx = -gamepad1.left_stick_x;
+            double rx = gamepad1.left_stick_x;
 
             // -------------------------
             // FIELD-CENTRIC TRANSFORM
